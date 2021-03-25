@@ -7,8 +7,9 @@
 /**
  * Imports.
  */
-const HtmlWebPackPlugin = require( 'html-webpack-plugin' );
-const path              = require( 'path' );
+const HtmlWebPackPlugin      = require( 'html-webpack-plugin' );
+const path                   = require( 'path' );
+
 
 
 
@@ -22,7 +23,27 @@ module.exports =
 	{
 		app:
 		[
-			'./src/index.js'
+			'./src/index.tsx'
+		],
+	},
+	module:
+	{
+		rules:
+		[
+			{
+				exclude: /node_modules/,
+				loader : 'ts-loader',
+				test   : /\.tsx?$/,
+			},
+			{
+				test: /\.p?css$/i,
+				use :
+				[
+					'style-loader',
+					'css-loader',
+					'postcss-loader',
+				],
+			},
 		],
 	},
 	output:
