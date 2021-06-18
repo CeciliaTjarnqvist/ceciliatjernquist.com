@@ -1,3 +1,7 @@
-import { showAlert } from './app/app';
+import ReactDOM from 'react-dom';
+import { App } from './app/app';
 
-showAlert();
+ReactDOM.render(
+    <App />,
+    document.getElementById( 'app-root' )
+);
